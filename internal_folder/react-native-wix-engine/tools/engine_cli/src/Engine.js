@@ -38,8 +38,7 @@ function parseArgs() {
   });
 
   parser.addArgument(['-p', '--custom-config-json'], {
-    help:
-      'path to configuration json (the default is package.json in the current dir)',
+    help: 'path to configuration json (the default is package.json in the current dir)',
   });
 
   parser.addArgument(['--ios-devices'], {
@@ -104,9 +103,7 @@ async function run(args) {
       Logger.error(
         "Detected packager running, can't run another one. " +
           'If you intentionally started it separately, use the -P option. ' +
-          `To run the running packager process, use 'lsof -i :${
-            args.packager_port
-          }'.`,
+          `To run the running packager process, use 'lsof -i :${args.packager_port}'.`,
       );
       process.exit();
     }

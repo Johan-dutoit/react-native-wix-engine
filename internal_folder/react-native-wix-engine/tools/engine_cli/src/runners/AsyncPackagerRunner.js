@@ -21,7 +21,12 @@ class AsyncPackagerRunner {
     }
 
     const cwd = `${engineDir}/../..`;
-    Logger.info(`Running in background: ${Logger.color(`cd ${cwd} ${rnStartCmdArray.join(' ')}`, 'quote')}`);
+    Logger.info(
+      `Running in background: ${Logger.color(
+        `cd ${cwd} ${rnStartCmdArray.join(' ')}`,
+        'quote',
+      )}`,
+    );
 
     const packager = childProcess.spawn(
       rnStartCmdArray[0],
@@ -31,7 +36,7 @@ class AsyncPackagerRunner {
         stdio: 'inherit',
       },
     );
-    packager.on('exit', () => Logger.info(`The packager process finished`));
+    packager.on('exit', () => Logger.info('The packager process finished'));
 
     return packager;
   }
